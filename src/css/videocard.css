@@ -1,0 +1,18 @@
+.effect:hover {
+    /* box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.253) !important;
+    transform: scale(1.1);
+    transform-origin: left;
+    z-index: -1;
+    position: relative; */
+
+    color: #fff;
+    transform: scale(1.025);
+    transform-origin: left;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 5px 10px
+  }
+
+.effect{
+  width: 250px;
+  height: 250px;
+}
+  

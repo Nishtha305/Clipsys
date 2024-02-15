@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.player {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  // justify-content: start;
+  // align-items: center;
+  min-height: 100%;
+  width: 100%;
+  // border: 2px solid indigo;
+  // padding: 1.7%;
+
+  .container {
+    position: relative;
+    // border: 2px solid indianred;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    #video_player {
+      // border: 2px solid blueviolet;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: slategray;
+      border-radius: 5px;
+      overflow: hidden;
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.24);
+
+      #main_video {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        outline: none;
+      }
+      .controls.active {
+        transform: translateY(0);
+      }
+      .controls {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 50px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.71);
+        box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.25);
+        z-index: 3;
+        transform: translateY(180px);
+        .progress_area {
+          width: 100%;
+          height: 5px;
+          margin: auto;
+          background: #f0f0f0;
+          cursor: pointer;
+
+          .progress_bar {
+            position: relative;
+            width: 0%;
+            background: rgba(113, 3, 192, 0.82);
+            height: inherit;
+            border-radius: inherit;
+            cursor: pointer;
+          }
+          .progress_bar::before {
+            content: "";
+            position: absolute;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgb(113, 3, 192);
+          }
+        }
+        .controls_list {
+          color: white;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: nowrap;
+          width: 97%;
+          height: 45px;
+          margin: 0 auto;
+          .controls_left,
+          .controls_right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .controls_left {
+            .timer {
+              font-size: 13px;
+              white-space: nowrap;
+              color: #fff;
+              margin-left: 5px;
+            }
+          }
+          .controls_right {
+            .icons {
+              .settingsBtn.active {
+                transform: rotate(45deg);
+              }
+              .hd.active {
+                transform: rotate(360deg);
+              }
+            }
+          }
+        }
+        .icons {
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          // margin-left: 8px;
+          margin-right: 5px;
+          .volume_range {
+            appearance: none;
+            height: 3px;
+            background: #fff;
+            color: #fff;
+            width: 0px;
+            border-radius: 2px;
+            cursor: pointer;
+            outline: none;
+            border: none;
+            transition: 0.4s;
+          }
+          .volume_range::-webkit-slider-thumb {
+            appearance: none;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: none;
+            outline: none;
+            background: #fff;
+            color: #fff;
+            opacity: 0;
+            transition: 0.3s;
+          }
+          .material-icons {
+            font-size: 24px;
+            color: #fff;
+            cursor: pointer;
+            .fast_rewind:active {
+              transition: 0.2s;
+              transform: rotate(45deg);
+            }
+            .fast_forward:active {
+              transition: 0.2s;
+              transform: rotate(45deg);
+            }
+          }
+        }
+        .icons:hover {
+          .volume_range {
+            display: inline-block;
+            width: 60px;
+          }
+          .volume_range::-webkit-slider-thumb {
+            opacity: 1;
+            pointer-events: auto;
+            transition: 0.5s;
+          }
+        }
+      }
+      #resolution {
+        display: none;
+        height: 100px;
+        position: absolute;
+        right: 25px;
+        bottom: 67px;
+        background: rgba(28, 28, 28, 0.8);
+        color: #fff;
+        overflow-y: scroll;
+        z-index: 10;
+        span {
+          font-size: 14px;
+          font-weight: 300;
+          padding: 15px 30px;
+          display: block;
+          border-bottom: 1px solid rgba(83, 83, 83, 0.8);
+        }
+        ul {
+          position: relative;
+          li {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            padding: 12px 33px;
+            display: block;
+            font-size: 14px;
+          }
+          li:hover {
+            background: rgba(28, 28, 28, 0.9);
+          }
+          li.active::before {
+            content: "\e876";
+            font-family: "Material Icons";
+            position: absolute;
+            left: 7px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-right: 10px;
+            font-size: 18px;
+          }
+        }
+      }
+      #settings {
+        height: 140px;
+        display: none;
+        position: absolute;
+        right: 25px;
+        bottom: 67px;
+        background: rgba(28, 28, 28, 0.8);
+        color: #fff;
+        overflow-y: scroll;
+        z-index: 20;
+        .playback {
+          span {
+            font-size: 14px;
+            font-weight: 300;
+            padding: 15px 30px;
+            display: block;
+            border-bottom: 1px solid rgba(83, 83, 83, 0.8);
+          }
+          ul {
+            position: relative;
+            li {
+              position: relative;
+              width: 100%;
+              cursor: pointer;
+              padding: 12px 33px;
+              display: block;
+              font-size: 14px;
+            }
+            li:hover {
+              background: rgba(28, 28, 28, 0.9);
+            }
+            li.active::before {
+              content: "\e876";
+              font-family: "Material Icons";
+              position: absolute;
+              left: 7px;
+              top: 50%;
+              transform: translateY(-50%);
+              padding-right: 10px;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+      #settings.active,
+      #resolution.active {
+        display: block;
+      }
+      #settings::-webkit-scrollbar-thumb,
+      #resolution::-webkit-scrollbar-thumb {
+        height: 20px;
+        border: 2px solid transparent;
+        background: rgba(83, 83, 83, 0.8);
+        cursor: pointer;
+      }
+    }
+
+    .material-icons {
+      user-select: none;
+      color: white;
+      cursor: pointer;
+    }
+    // video Player Styling
+  }
+  @media (max-width: 500px) {
+    .container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .controls {
+        .controls_list {
+          .controls_left {
+            .icons {
+              margin-left: 5px;
+              margin-right: 5px;
+              font-size: 24px;
+              .volume,
+              .volume_range {
+                display: none;
+              }
+            }
+          }
+
+          .controls_right {
+            .icons {
+              .picture_in_picture {
+                margin: 0;
+                padding: 0;
+                display: none;
+                visibility: hidden;
+              }
+            }
+            #settings {
+              height: 80px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

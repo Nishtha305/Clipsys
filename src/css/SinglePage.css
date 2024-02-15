@@ -1,0 +1,6 @@
+.btn1:focus {
+    outline: none !important;
+    border: -1 transparent !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+  }

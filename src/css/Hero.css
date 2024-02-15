@@ -1,0 +1,36 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Mulish&display=swap'); */
+.hero {
+    overflow-x: hidden;
+  }
+  
+  .hero {
+    min-height: 100vh;
+    min-width: 100%;
+    background: url("../images/img.jpg") center no-repeat;
+    background-size: cover;
+    position: relative;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+      display: block;
+      align-items: center;
+      justify-content: center;
+  }
+  .container{
+    margin-top: 0;
+  }
+  .hero:before {
+    content: "";
+    opacity: 0.7;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+  .hero-content {
+    position: absolute;
+    /* bottom: 15px; */
+    color: #fff;
+    font-family: "Mulish", sans-serif;
+  }
+  
